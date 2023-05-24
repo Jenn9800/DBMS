@@ -41,13 +41,7 @@ public class User {
 		this.budget = budget;
 		this.cal_limit = cal_limit;
 	}
-	public int getID() {
-		return id;
-	}
 
-	public void setID(int id) {
-		this.id = id;
-	}
 	public int getHeight() {
 		return height;
 	}

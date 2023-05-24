@@ -1,15 +1,32 @@
 <%@page import="cn.techtutorial.connection.DbCon"%>
 <%@page import="cn.techtutorial.dao.LouisaMenuDao"%>
+<%@page import="cn.techtutorial.dao.UserDao"%>
+
 <%@page import="cn.techtutorial.model.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
+UserDao uDao = new UserDao(DbCon.getConnection());
+
+session = request.getSession();
+String email = (String) session.getAttribute("loginemail");
+System.out.println("auth.getEmail(): " + email);
+int cal_limit = 1000;
+
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
 	request.setAttribute("person", auth);
+	System.out.println("auth is not null");
+ } else {
+    System.out.println("auth is null");
 }
+ 
+
+ 
+
+ 
 ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 List<Cart> cartProduct = null;
 if (cart_list != null) {
@@ -17,10 +34,13 @@ if (cart_list != null) {
 	cartProduct = lDao.getCartProducts(cart_list);
 	int c_total = lDao.getTotalCartCalorie(cart_list);
 	int p_total = lDao.getTotalCartPrice(cart_list);
+	
+	int remainingCalories = cal_limit - c_total;
 
 	request.setAttribute("cart-list", cart_list);
 	request.setAttribute("c_total", c_total);
 	request.setAttribute("p_total", p_total);
+	request.setAttribute("remainingCalories", remainingCalories); // Add this line
 
 }
 %>
@@ -47,7 +67,9 @@ if (cart_list != null) {
 		<div class="d-flex py-3">
 			<h3>
 				Today's Calorie Consumption: ${(c_total>0)?c_total:0} Cal <br>
-				Today's Spent: $${(p_total>0)?p_total:0}
+				Today's Spent: $${(p_total>0)?p_total:0}<br>
+				Remaining Calories: ${(remainingCalories>0)?remainingCalories:0} Cal <!-- Add this line -->
+			
 			</h3>
 
 

@@ -3,7 +3,9 @@ package cn.techtutorial.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
 
+import cn.techtutorial.connection.DbCon;
 import cn.techtutorial.model.*;
 
 public class UserDao {
@@ -18,6 +20,23 @@ public class UserDao {
 	public UserDao(Connection con) {
 		this.con = con;
 	}
+	
+	public int getCalorieLimit(String email) {
+	    int cal_limit = 0;
+	    try {
+	        query = "SELECT cal_limit FROM users WHERE email = ?";
+	        pst = this.con.prepareStatement(query);
+	        pst.setString(1, email);
+	        ResultSet rs = pst.executeQuery();
+	        if (rs.next()) {
+	            cal_limit = rs.getInt("cal_limit");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return cal_limit;
+	}
+
 	
 	public User userLogin(String email) {
 		User user = null;
@@ -149,4 +168,5 @@ public class UserDao {
 		
 		return rowUpdated;
 	}
+	
 }
