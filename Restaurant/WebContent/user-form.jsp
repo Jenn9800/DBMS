@@ -11,8 +11,10 @@
 
 <body>
 	<%@include file="/includes/navbar.jsp"%>
+<br>
+<h2><center>Update Personal Information</center></h2>
+<br>
 
-<h2>Update Personal Information</h2>
 <form action="PersonalServlet" method="post">
 <table align="center">
 <tr>

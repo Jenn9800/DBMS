@@ -40,8 +40,7 @@ if (cart_list != null) {
 	request.setAttribute("cart-list", cart_list);
 	request.setAttribute("c_total", c_total);
 	request.setAttribute("p_total", p_total);
-	request.setAttribute("remainingCalories", remainingCalories); // Add this line
-
+ 
 }
 %>
 <!DOCTYPE html>
@@ -68,8 +67,7 @@ if (cart_list != null) {
 			<h3>
 				Today's Calorie Consumption: ${(c_total>0)?c_total:0} Cal <br>
 				Today's Spent: $${(p_total>0)?p_total:0}<br>
-				Remaining Calories: ${(remainingCalories>0)?remainingCalories:0} Cal <!-- Add this line -->
-			
+ 			
 			</h3>
 
 
