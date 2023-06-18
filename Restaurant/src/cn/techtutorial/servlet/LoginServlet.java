@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			
 
 				session.setAttribute("loginemail", rs.getString("email"));
-				dispatcher = request.getRequestDispatcher("p_info.jsp");
+				dispatcher = request.getRequestDispatcher("index.jsp");
 				session.setAttribute("id", rs.getInt(1));
 				session.setAttribute("name", rs.getString(2));
 				session.setAttribute("email", rs.getString(3));

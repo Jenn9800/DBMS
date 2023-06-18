@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-6">
 				<div  class="card w-100">
-					<img class="card-img-top" src="product-images/student.jpg">
+					<img class="card-img-top" src="productImages/student.jpg">
 										<div class="card-body">
 					
  						<div class="col-md-12 text-center">
@@ -35,7 +35,7 @@
 
 			<div class="col-6">
 				<div  class="card w-100">
-					<img class="card-img-top" src="product-images/owner.jpg">
+					<img class="card-img-top" src="productImages/owner.jpg">
  						
 					<div class="card-body">
 						<div class="col-md-12 text-center">

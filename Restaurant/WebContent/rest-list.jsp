@@ -78,7 +78,7 @@ td {
 							<td><c:out value="${product.location}" /></td>
 							<td><c:out value="${product.price}"/></td>
 							
-							<td><img src="<c:url value='/Restaurant/WebContent/productImages/louisa.jpg'/>" style="max-height:50%; max-width:50%"/></td>
+							<td><img src="<c:url value='productImages/${product.image}'/>" style="max-height:50%; max-width:50%"/></td>
   							<td><a href="edit?id=<c:out value='${product.id}' />">Edit</a>
 							<td><a href="delete?id=<c:out value='${product.id}' />">Delete</a></td>
  							
